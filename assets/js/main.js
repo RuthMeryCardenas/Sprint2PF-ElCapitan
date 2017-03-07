@@ -12,6 +12,22 @@
   var dSP3Lessons = document.getElementById('SP3lessons');
   var dSP3Quiz = document.getElementById('SP3quiz');
   var dResults = document.getElementById('results');
+  //Implementando función que mostrará el menú del dropdown
+  function showMenu() {
+	document.getElementById("myDropdown").classList.toggle("show");
+  }
+  window.onclick = function(event) {
+  	if (!event.target.matches('.dropbtn')) {
+  		var dropdowns = document.getElementsByClassName("dropdown-content");
+  		var i;
+  		for (i = 0; i < dropdowns.length; i++) {
+  			var openDropdown = dropdowns[i];
+  			if (openDropdown.classList.contains('show')) {
+  				openDropdown.classList.remove('show');
+  			}
+  		}
+  	}
+  }
   //Implementando funcion show --> muestra el Sprint seleccioado
   function show(toShow) {
     toShow.style.display = "block";
@@ -88,5 +104,10 @@
 //CARGA DEL FORMULARIO
   //Implementando la función CallBack del evento onload
   window.onload = function () {
+    // var nameCoder = prompt("Ingresa tu nombre");
+    // if (nameCoder != "" || nameCoder != null ) {
+    //   document.getElementsByClassName('dropdown')[0].innerHTML = "Hola coder " + nameCoder;
+    //   bSprint2.click();
+    // }
     bSprint2.click();
   }
