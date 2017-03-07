@@ -3,6 +3,7 @@
   var bSprint1 = document.getElementById('button1');
   var bSprint2 = document.getElementById('button2');
   var bSprint3 = document.getElementById('button3');
+  var dSubmit = document.getElementById('button4');
   //Obteniendo los nodos "div" del HTML
   var dSP1Lessons = document.getElementById('SP1lessons');
   var dSP1Quiz = document.getElementById('SP1quiz');
@@ -10,32 +11,79 @@
   var dSP2Quiz = document.getElementById('SP2quiz');
   var dSP3Lessons = document.getElementById('SP3lessons');
   var dSP3Quiz = document.getElementById('SP3quiz');
+  var dResults = document.getElementById('results');
   //Implementando funcion show --> muestra el Sprint seleccioado
-  function show(showLesson,showQuiz) {
-    showLesson.style.display = "block";
-    showQuiz.style.display = "block";
-  }
-  function hide(hideLesson,hideQuiz) {
-    hideLesson.style.display = "none";
-    hideQuiz.style.display = "none";
+  function show(toShow) {
+    toShow.style.display = "block";
   }
   //Implementando funcion hide --> oculta el Sprint no seleccioado
+  function hide(toHide) {
+    toHide.style.display = "none";
+  }
+  //Implementando función para calcular los resultados del Quiz
+  dSubmit.onclick = function (){
+    var score = 0;
+    var rQuestionA, rQuestionB, rQuestionC;
+    if (dSP1Quiz.style.display == "block") {
+      rQuestionA = document.getElementsByName('q1');
+      rQuestionB = document.getElementsByName('q2');
+      rQuestionC = document.getElementsByName('q3');
+      hide(dSP1Quiz);
+    }
+    if (dSP2Quiz.style.display == "block") {
+      rQuestionA = document.getElementsByName('q4');
+      rQuestionB = document.getElementsByName('q5');
+      rQuestionC = document.getElementsByName('q6');
+      hide(dSP2Quiz);
+    }
+    for(var i = 0; i < rQuestionA.length; i++){
+        if(rQuestionA[i].checked){
+          score += parseInt(rQuestionA[i].value);
+        }
+        if(rQuestionB[i].checked){
+          score += parseInt(rQuestionB[i].value);
+        }
+        if(rQuestionC[i].checked){
+          score += parseInt(rQuestionC[i].value);
+        }
+      }
+    show(dResults);
+    dResults.innerHTML = "Tienes " + score + " correctas";
+    hide(dSubmit);
+  }
   //Implementando las funciones CallBack del evento onclick de cada button
   bSprint1.onclick = function () {
-    show(dSP1Lessons,dSP1Quiz);
-    hide(dSP2Lessons,dSP2Quiz);
-    hide(dSP3Lessons,dSP3Quiz);
+    document.getElementById("formQuiz").reset();
+    hide(dResults);
+    hide(dSP2Lessons);
+    hide(dSP2Quiz);
+    hide(dSP3Lessons);
+    hide(dSP3Quiz);
+    show(dSP1Lessons);
+    show(dSP1Quiz);
+    show(dSubmit);
   }
   bSprint2.onclick = function () {
-    show(dSP2Lessons,dSP2Quiz);
-    hide(dSP1Lessons,dSP1Quiz);
-    hide(dSP3Lessons,dSP3Quiz);
+    hide(dResults);
+    document.getElementById("formQuiz").reset();
+    hide(dSP1Lessons);
+    hide(dSP1Quiz);
+    hide(dSP3Lessons);
+    hide(dSP3Quiz);
+    show(dSP2Lessons);
+    show(dSP2Quiz);
+    show(dSubmit);
   }
   bSprint3.onclick = function () {
-    show(dSP3Lessons,dSP3Quiz);
-    hide(dSP1Lessons,dSP1Quiz);
-    hide(dSP2Lessons,dSP2Quiz);
-    document.getElementById('button4').style.display = "none";
+    document.getElementById("formQuiz").reset();
+    hide(dResults);
+    hide(dSP2Lessons);
+    hide(dSP2Quiz);
+    hide(dSP1Lessons);
+    hide(dSP1Quiz);
+    hide(dSubmit);
+    show(dSP3Lessons);
+    //show(dSP3Quiz);
   }
 //CARGA DEL FORMULARIO
   //Implementando la función CallBack del evento onload

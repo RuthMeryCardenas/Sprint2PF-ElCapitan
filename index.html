@@ -20,7 +20,6 @@
       <button type="button" id="button2">Sprint 2</button>&nbsp;&nbsp;
       <button type="button" id="button3">Sprint 3</button>&nbsp;&nbsp;
       <section id="lessons">
-
         <div class="" id="SP1lessons">
           <h3>Sprint 1: Introducción a JavaScript</h3>
             <ol>
@@ -48,7 +47,7 @@
         <hr>
       </section>
       <section id="quizzes">
-        <form class="" method="post">
+        <form onsubmit="return false;" id="formQuiz">
           <div class="" id="SP1quiz">
             <h3>Quiz</h3>
             <b><label for=''>Existen dos tipos de funciones</label></b>
@@ -71,24 +70,26 @@
            <h3>Quiz</h3>
            <b><label for=''>¿Cuál es el comando para iniciar un repositorio desde la consola?</label></b>
            <br><br>
-           <input type='radio' name='q1'value="0">git init .</input><br>
-           <input type='radio' name='q1'value="1">git init</input><br>
-           <input type='radio' name='q1'value="0">git init add</input><br><br>
+           <input type='radio' name='q4'value="0">git init .</input><br>
+           <input type='radio' name='q4'value="1">git init</input><br>
+           <input type='radio' name='q4'value="0">git init add</input><br><br>
            <b><label for=''>¿Cuál es la finalidad de hacer una prueba unitaria</label></b>
            <br><br>
-           <input type='radio' name='q2'value="1">Comprobar que el código funciona correctamente</input><br>
-           <input type='radio' name='q2'value="0">Darle valores a los parámetros de dichas funciones</input><br>
-           <input type='radio' name='q2'value="0">No tiene ningún fin</input><br><br>
+           <input type='radio' name='q5'value="1">Comprobar que el código funciona correctamente</input><br>
+           <input type='radio' name='q5'value="0">Darle valores a los parámetros de dichas funciones</input><br>
+           <input type='radio' name='q5'value="0">No tiene ningún fin</input><br><br>
            <b><label for=''>¿Qué significa DOM?</label></b>
            <br><br>
-           <input type='radio' name='q3' value="0">Dual Object Model</input><br>
-           <input type='radio' name='q3' value="1">Document Object Model</input><br>
-           <input type='radio' name='q3' value="0">Document Obsolet Model</input><br><br>
+           <input type='radio' name='q6' value="0">Dual Object Model</input><br>
+           <input type='radio' name='q6' value="1">Document Object Model</input><br>
+           <input type='radio' name='q6' value="0">Document Obsolet Model</input><br><br>
           </div>
           <div class="" id="SP3quiz"></div>
-          <button type="submit" id="button4">Enviar</button>
+          <button type="button" id="button4">Enviar</button>
         </form>
       </section>
+      <div class="" id="results">
+      </div>
       <footer class="text-center">Created by <b>Ruth Mery Cardenas Perez</b></footer>
     </div>
     <script type="text/javascript" src="assets/js/main.js"></script>
