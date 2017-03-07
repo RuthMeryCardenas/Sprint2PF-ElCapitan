@@ -35,6 +35,7 @@
     show(dSP3Lessons,dSP3Quiz);
     hide(dSP1Lessons,dSP1Quiz);
     hide(dSP2Lessons,dSP2Quiz);
+    document.getElementById('button4').style.display = "none";
   }
 //CARGA DEL FORMULARIO
   //Implementando la función CallBack del evento onload
